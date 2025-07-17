@@ -36,7 +36,7 @@ However, SMILES remains one of the most efficient human-readable formats in whic
 
 ## Web API
 
-The core functionality of SmilesDB is as a web-app and online API with easily accessible endpoints, as listed in Table \ref{endpoints}. When self-hosted, these endpoints remain accessible but at a localhost address returned by the `Flask` [@flask] start command.
+The core functionality of SmilesDB is as a web-app and online API with easily accessible endpoints, as listed in \autoref{endpoints}. When self-hosted, these endpoints remain accessible but at a localhost address returned by the `Flask` [@flask] start command.
 
 Table: available API endpoints for SmilesDB. \label{endpoints}
 
@@ -77,7 +77,7 @@ The return from the API endpoints will be a JSON array consisting of some number
 ]
 ``` 
 
-Some fields may not always exist in every JSON object, though an empty object will never be returned in the array. There can be up to 10 fields, as seen in Table \autoref{fields}.
+Some fields may not always exist in every JSON object, though an empty object will never be returned in the array. There can be up to 10 fields, as seen in \autoref{fields}.
 
 Table: JSON object field types in return array from SmilesDB. \label{fields}
 
@@ -99,12 +99,16 @@ Because the `SmilesDB` API is open and can be requested from any programming lan
 
 For example, in `WolframLanguage` [@wolframInterface], integration is as simple as:
 ```mathematica
-getRandom[n_Integer] := Molecule /@ ImportString[
+getShortest[n_Integer] := # -> Molecule[#] & /@ ImportString[
     URLRead[
-        "https://smilesdb.org/api/smiles/random/"<>ToString[n]
-      ,"Body"]
-  ,"JSON"] 
+        "https://smilesdb.org/api/smiles/short/" <> ToString[n]
+      , "Body"]
+   , "JSON"]
 ```
+
+And returns output like in /autoref{wolframOuput}.
+
+![Formatted output from `getShortest[3]`. \label{wolframOutput}](short3.jpg)
 
 # Available Data
 Each molecule in `SmilesDB` includes data from RDKit [@rdkit] as well as a SMILES string identifier. The full database can be queried using the online API at [smilesdb.org/api](https://smilesdb.org/api) with a variety of dynamic endpoints for any number of molecules.

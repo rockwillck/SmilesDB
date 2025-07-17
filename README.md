@@ -7,6 +7,8 @@ A SMILES-first molecular database API
 
 To check availability and uptime, see the [status page](https://status.smilesdb.org/).
 
+## [Statement of Need](https://github.com/rockwillck/SmilesDB/wiki#statement-of-need)
+
 ## Documentation
 
 ### [Endpoints](https://github.com/rockwillck/SmilesDB/wiki/API-Documentation#endpoints)

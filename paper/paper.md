@@ -38,7 +38,7 @@ However, SMILES remains one of the most efficient human-readable formats in whic
 
 The core functionality of SmilesDB is as a web-app and online API with easily accessible endpoints, as listed in Table \ref{endpoints}. When self-hosted, these endpoints remain accessible but at a localhost address returned by the `Flask` [@flask] start command.
 
-Table: available API endpoints for SmilesDB. []{label=endpoints}
+Table: available API endpoints for SmilesDB. \label{endpoints}
 
 | Endpoint              | Description                                      |
 |-----------------------|--------------------------------------------------|
@@ -79,7 +79,7 @@ The return from the API endpoints will be a JSON array consisting of some number
 
 Some fields may not always exist in every JSON object, though an empty object will never be returned in the array. There can be up to 10 fields, as seen in Table \autoref{fields}.
 
-Table: JSON object field types in return array from SmilesDB. []{label=fields}
+Table: JSON object field types in return array from SmilesDB. \label{fields}
 
 | Field              | Description                             |
 |--------------------|-----------------------------------------|

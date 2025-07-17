@@ -32,67 +32,13 @@ The SMILES specification was proprietary in its early days and is now insufficie
 
 However, SMILES remains one of the most efficient human-readable formats in which to store basic molecular data, and with the modern specification, it is possible to store more advanced data - including isomerism and ring closures.
 
+Existing databases - most significantly, BindingDB [@bindingdb] - do include SMILES strings but fail to make them easily accessible en-masse or possible to query through an API.
+
 # Functionality
 
-## Web API
+## Online API
 
-The core functionality of SmilesDB is as a web-app and online API with easily accessible endpoints, as listed in \autoref{tbl:endpoints}. When self-hosted, these endpoints remain accessible but at a localhost address returned by the `Flask` [@flask] start command.
-
-Table: available API endpoints for SmilesDB. \label{tbl:endpoints}
-
-| Endpoint              | Description                                      |
-|-----------------------|--------------------------------------------------|
-| `/api/smiles/full`    | Gets the full list of SMILES strings as a JSON list. |
-| `/api/smiles/random/n_` | Returns `n_` random SMILES strings.               |
-| `/api/smiles/short/n_`  | Returns `n_` shortest SMILES strings.             |
-| `/api/smiles/long/n_`   | Returns `n_` longest SMILES strings.              |
-
-The return from the API endpoints will be a JSON array consisting of some number of JSON objects. The array will look something like:
-```JSON
-[
-  {
-    "LogP":1.99502,
-    "SMILES":"Cc1ccccc1",
-    "TPSA":0.0,
-    "formula":"C7H8",
-    "hbond_acceptors":0,
-    "hbond_donors":0,
-    "num_atoms":7,
-    "num_bonds":7,
-    "rotatable_bonds":0,
-    "weight":92.14099999999999
-  },
-  {
-    "LogP":1.99502,
-    "SMILES":"Cc1ccccc1",
-    "TPSA":0.0,
-    "formula":"C7H8",
-    "hbond_acceptors":0,
-    "hbond_donors":0,
-    "num_atoms":7,
-    "num_bonds":7,
-    "rotatable_bonds":0,
-    "weight":92.14099999999999
-  }
-]
-``` 
-
-Some fields may not always exist in every JSON object, though an empty object will never be returned in the array. There can be up to 10 fields, as seen in \autoref{tbl:fields}.
-
-Table: JSON object field types in return array from SmilesDB. \label{tbl:fields}
-
-| Field              | Description                             |
-|--------------------|-----------------------------------------|
-| `SMILES`           | SMILES string                           |
-| `formula`          | Molecular formula                       |
-| `weight`           | Molecular weight                        |
-| `num_atoms`        | Number of atoms                         |
-| `num_bonds`        | Number of bonds                         |
-| `LogP`             | Wildman-Crippen LogP value              |
-| `TPSA`             | Topological Polar Surface Area (TPSA)   |
-| `rotatable_bonds`  | Number of rotatable bonds               |
-| `hbond_donors`     | Number of H-bond donors                 |
-| `hbond_acceptors`  | Number of H-bond acceptors              |
+The core functionality of SmilesDB is as a web-app and online API with easily accessible endpoints. When self-hosted, these endpoints remain accessible but at a localhost address returned by the `Flask` [@flask] start command.
 
 ## Integrating the API
 Because the `SmilesDB` API is open and can be requested from any programming language with a http request framework, integrating `SmilesDB` into existing projects is simple. 
@@ -115,6 +61,6 @@ Each molecule in `SmilesDB` includes data from RDKit [@rdkit] as well as a SMILE
 
 # Acknowledgements
 
-Thank you to Jason Sonnenberg for his support during the early stages of this project.
+Thank you to Dr. Jason Sonnenberg for his support during the early stages of this project.
 
 # References

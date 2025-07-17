@@ -36,7 +36,9 @@ However, SMILES remains one of the most efficient human-readable formats in whic
 
 ## Web API
 
-The core functionality of SmilesDB is as a web-app and online API with easily accessible endpoints. When self-hosted, these endpoints remain accessible but at a localhost address returned by the `Flask` [@flask] start command.
+The core functionality of SmilesDB is as a web-app and online API with easily accessible endpoints, as listed in Table [tbl:endpoints]. When self-hosted, these endpoints remain accessible but at a localhost address returned by the `Flask` [@flask] start command.
+
+Table: available API endpoints for SmilesDB. {#tbl:endpoints}
 
 | Endpoint              | Description                                      |
 |-----------------------|--------------------------------------------------|
@@ -44,8 +46,6 @@ The core functionality of SmilesDB is as a web-app and online API with easily ac
 | `/api/smiles/random/n_` | Returns `n_` random SMILES strings.               |
 | `/api/smiles/short/n_`  | Returns `n_` shortest SMILES strings.             |
 | `/api/smiles/long/n_`   | Returns `n_` longest SMILES strings.              |
-
-Table 1: available API endpoints for SmilesDB
 
 The return from the API endpoints will be a JSON array consisting of some number of JSON objects. The array will look something like:
 ```JSON
@@ -77,7 +77,9 @@ The return from the API endpoints will be a JSON array consisting of some number
 ]
 ``` 
 
-Some fields may not always exist in every JSON object, though an empty object will never be returned in the array.
+Some fields may not always exist in every JSON object, though an empty object will never be returned in the array. There can be up to 10 fields, as seen in Table [tbl:fields].
+
+Table: JSON object field types in return array from SmilesDB {#tbl:fields}
 
 | Field              | Description                             |
 |--------------------|-----------------------------------------|
@@ -91,8 +93,6 @@ Some fields may not always exist in every JSON object, though an empty object wi
 | `rotatable_bonds`  | Number of rotatable bonds               |
 | `hbond_donors`     | Number of H-bond donors                 |
 | `hbond_acceptors`  | Number of H-bond acceptors              |
-
-Table 2: JSON object field types in return array from SmilesDB
 
 ## Integrating the API
 Because the `SmilesDB` API is open and can be requested from any programming language with a http request framework, integrating `SmilesDB` into existing projects is simple. 

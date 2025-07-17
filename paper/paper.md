@@ -106,7 +106,8 @@ getRamdp,[n_Integer] := # -> Molecule[#] & /@ ImportString[
    , "JSON"]
 ```
 
-This simple integration brings all of SmilesDB into WolframLanguage, and output can be formatted like in /autoref{fig:wolframOutput}.
+This simple integration brings all of SmilesDB into WolframLanguage, and output can be formatted like in a
+\autoref{fig:wolframOutput}.
 
 ![Formatted output from `getShortest[3]`. \label{fig:wolframOutput}](short3.jpg) 
 

@@ -106,10 +106,9 @@ getRamdp,[n_Integer] := # -> Molecule[#] & /@ ImportString[
    , "JSON"]
 ```
 
-This simple integration brings all of SmilesDB into WolframLanguage, and output can be formatted like in a
-\autoref{fig:wolframOutput}.
+This simple integration brings all of SmilesDB into WolframLanguage, and output can be formatted like in \autoref{fig:wolframOutput}.
 
-![Formatted output from `getShortest[3]`. \label{fig:wolframOutput}](short3.jpg) 
+![Formatted output from `getRandom[3]`. \label{fig:wolframOutput}](short3.jpg) 
 
 # Available Data
 Each molecule in `SmilesDB` includes data from RDKit [@rdkit] as well as a SMILES string identifier. The full database can be queried using the online API at [smilesdb.org/api](https://smilesdb.org/api) with a variety of dynamic endpoints for any number of molecules.

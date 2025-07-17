@@ -36,9 +36,9 @@ However, SMILES remains one of the most efficient human-readable formats in whic
 
 ## Web API
 
-The core functionality of SmilesDB is as a web-app and online API with easily accessible endpoints, as listed in \autoref{endpoints}. When self-hosted, these endpoints remain accessible but at a localhost address returned by the `Flask` [@flask] start command.
+The core functionality of SmilesDB is as a web-app and online API with easily accessible endpoints, as listed in \autoref{tbl:endpoints}. When self-hosted, these endpoints remain accessible but at a localhost address returned by the `Flask` [@flask] start command.
 
-Table: available API endpoints for SmilesDB. \label{endpoints}
+Table: available API endpoints for SmilesDB. \label{tbl:endpoints}
 
 | Endpoint              | Description                                      |
 |-----------------------|--------------------------------------------------|
@@ -77,9 +77,9 @@ The return from the API endpoints will be a JSON array consisting of some number
 ]
 ``` 
 
-Some fields may not always exist in every JSON object, though an empty object will never be returned in the array. There can be up to 10 fields, as seen in \autoref{fields}.
+Some fields may not always exist in every JSON object, though an empty object will never be returned in the array. There can be up to 10 fields, as seen in \autoref{tbl:fields}.
 
-Table: JSON object field types in return array from SmilesDB. \label{fields}
+Table: JSON object field types in return array from SmilesDB. \label{tbl:fields}
 
 | Field              | Description                             |
 |--------------------|-----------------------------------------|
@@ -106,9 +106,9 @@ getRamdp,[n_Integer] := # -> Molecule[#] & /@ ImportString[
    , "JSON"]
 ```
 
-And returns output like in /autoref{wolframOutput}.
+This simple integration brings all of SmilesDB into WolframLanguage, and output can be formatted like in /autoref{fig:wolframOutput}.
 
-![Formatted output from `getShortest[3]`. \label{wolframOutput}](short3.jpg) 
+![Formatted output from `getShortest[3]`. \label{fig:wolframOutput}](short3.jpg) 
 
 # Available Data
 Each molecule in `SmilesDB` includes data from RDKit [@rdkit] as well as a SMILES string identifier. The full database can be queried using the online API at [smilesdb.org/api](https://smilesdb.org/api) with a variety of dynamic endpoints for any number of molecules.

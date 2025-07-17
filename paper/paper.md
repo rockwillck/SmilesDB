@@ -99,16 +99,16 @@ Because the `SmilesDB` API is open and can be requested from any programming lan
 
 For example, in `WolframLanguage` [@wolframInterface], integration is as simple as:
 ```mathematica
-getShortest[n_Integer] := # -> Molecule[#] & /@ ImportString[
+getRamdp,[n_Integer] := # -> Molecule[#] & /@ ImportString[
     URLRead[
-        "https://smilesdb.org/api/smiles/short/" <> ToString[n]
+        "https://smilesdb.org/api/smiles/random/" <> ToString[n]
       , "Body"]
    , "JSON"]
 ```
 
-And returns output like in /autoref{wolframOuput}.
+And returns output like in /autoref{wolframOutput}.
 
-![Formatted output from `getShortest[3]`. \label{wolframOutput}](short3.jpg)
+![Formatted output from `getShortest[3]`. \label{wolframOutput}](short3.jpg) 
 
 # Available Data
 Each molecule in `SmilesDB` includes data from RDKit [@rdkit] as well as a SMILES string identifier. The full database can be queried using the online API at [smilesdb.org/api](https://smilesdb.org/api) with a variety of dynamic endpoints for any number of molecules.

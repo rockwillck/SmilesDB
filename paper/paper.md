@@ -99,7 +99,7 @@ Because the `SmilesDB` API is open and can be requested from any programming lan
 
 For example, in `WolframLanguage` [@wolframInterface], integration is as simple as:
 ```mathematica
-getRamdp,[n_Integer] := # -> Molecule[#] & /@ ImportString[
+getRandom[n_Integer] := # -> Molecule[#] & /@ ImportString[
     URLRead[
         "https://smilesdb.org/api/smiles/random/" <> ToString[n]
       , "Body"]

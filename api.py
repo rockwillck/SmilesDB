@@ -20,7 +20,7 @@ def docs():
     return redirect("https://github.com/rockwillck/SmilesDB/wiki")
 @app.route("/api")
 def api_docs():
-    return render_template("docs.html")
+    return redirect("https://github.com/rockwillck/SmilesDB/wiki/API-Documentation")
 @app.route("/citations")
 def citations():
     return render_template("citations.html")

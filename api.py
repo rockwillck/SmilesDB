@@ -1,7 +1,8 @@
-from flask import Flask, render_template, jsonify, url_for, redirect
+from flask import Flask, render_template, jsonify, url_for, redirect, request
 import random
 import json
 import markdown
+import requests
 
 app = Flask(__name__)
 
@@ -25,10 +26,31 @@ def api_docs():
 def citations():
     return render_template("citations.html")
 @app.route("/explore")
-def exp():
-    return render_template("explore.html")
+def explore():
+    return render_template("captcha.html")
 
-@app.route("/api/smiles/full")
+@app.route("/captcha-check/<string:forward>", methods=["GET", "POST"])
+def captcha(forward):
+    if request.method == "GET":
+        return redirect(url_for(forward))
+    
+    token = request.form.get("capycap-token")
+
+    # Verify captcha with CapyCap API
+    response = requests.post('https://capycap.ai/api/captcha/verify', 
+                           headers={'Content-Type': 'application/json'},
+                           json={
+                               'token': token,
+                               'sitekey': 'capy_live_9zEf9l3e9neg4CgqkB50lR0ahnqUAanC'
+                           })
+    
+    result = response.json()
+    success = result.get('success', False)
+    
+    if not success:
+        return jsonify({'error': 'Captcha verification failed'}), 400
+    return render_template(f"{forward}.html")
+    
 def smiles_full():
     return jsonify(smilesList)
 

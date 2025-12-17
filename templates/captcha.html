@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Captcha{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="/static/ref.css" />
+<link rel="stylesheet" type="text/css" href="/static/captcha.css" />
+{% endblock %}
+{% block content %}
+<div class="reference" id="ref">
+    <script src="https://capycap.ai/widget.js"></script>
+
+    <form action="/captcha-check/explore" method="POST" class="captcha">
+    <!-- Your form fields -->
+
+    <div class="capycap-captcha"
+        data-sitekey="capy_live_9zEf9l3e9neg4CgqkB50lR0ahnqUAanC">
+    </div>
+
+    <button type="submit">Submit</button>
+    </form>
+</div>
+{% endblock %}

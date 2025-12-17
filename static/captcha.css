@@ -1,0 +1,21 @@
+.captcha {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+}
+.captcha button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #1a7c5d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
